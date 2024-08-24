@@ -1,44 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
 }
 
-.navbarMain {
+.checkbox {
+    display: none;
+}
+
+.toggle {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 15px;
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: blueviolet;
+}
+
+.toggle .com {
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.toggle .top_Line {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .mid_Line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .bot_Line {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox:checked + .toggle .top_Line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+
+.checkbox:checked + .toggle .bot_Line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+
+.checkbox:checked + .toggle .mid_Line {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.nav {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    left: -180px;
+    top: 0;
     background-color: gray;
-    margin: 0;
-    padding: 0;
-    border: none;
-    display: block;
-    
+    transition: left 0.5s ease;
+    z-index: 2;
 }
 
-#navbarItem {
+.checkbox:checked ~ .nav {
+    left: 0;
+}
+
+.content {
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.5s ease;
+}
+
+.checkbox:checked ~ .content {
+    margin-left: 180px;
+}
+
+h1 {
+    color: blue;
+    font-weight: 800;
+    text-align: right;
+    padding: 15px 0;
+    padding-right: 30px;
+    pointer-events: none;
+}
+
+ul li {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.navbarMain li {
-    display: inline;
+ul li a {
+    color: black;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+ul li a i {
+    width: 40px;
     text-align: center;
-    padding: 14px 16px;
-    font-size: 2em;
 }
 
-.titleNav {
-    font-size: 5em;
-    padding: 20px 15px;
-    margin: 50px;
+#imgSearch {
+    padding: 10px;
+    margin-right: 10px; /* Space between input and button */
+    font-size: 16px;
 }
 
-#inputContainer {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 20px 0px;
+.search {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.images {
+.outputArea {
     display: flex;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    
 }
