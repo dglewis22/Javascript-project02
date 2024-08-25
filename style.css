@@ -107,6 +107,7 @@ h1 {
 
 ul li {
     list-style: none;
+    margin: 10px;
 }
 
 ul li a {
@@ -126,7 +127,7 @@ ul li a i {
 
 #imgSearch {
     padding: 10px;
-    margin-right: 10px; /* Space between input and button */
+    margin-right: 10px;
     font-size: 16px;
 }
 
@@ -136,9 +137,29 @@ ul li a i {
     cursor: pointer;
 }
 
-.outputArea {
+.inputArea {
     display: flex;
     justify-content: center;
     align-items: center;
     
+}
+
+.outputArea {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.pages {
+    display: none;
+    text-align: center;
+}
+
+h2 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
