@@ -3,43 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Matemasie&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Project02</title>
 </head>
 <body>
+
+    <!-- Nav Toggle/ Nav Menu Begins Here -->
     <input type="checkbox" id="nav-toggle" class="checkbox">
-    
     <label for="nav-toggle" class="toggle">
         <span class="top_Line com"></span>
         <span class="mid_Line com"></span>
         <span class="bot_Line com"></span>
     </label>
-    
     <div class="nav">
         <h1>Menu</h1>
         <ul>
-            <li><a href="#"><i class="item">About Us</i></a></li>
-            <li><a href="#"><i class="item">Socials</i></a></li>
-            <li><a href="#"><i class="item">GIF Of The Day</i></a></li>
-            <li><a href="#"><i class="item">Sign Up</i></a></li>
+            <li><a href="#about"><i class="item">About Us</i></a></li>
+            <li><a href="#socials"><i class="item">Socials</i></a></li>
+            <li><a href="#" onclick="GOTD()"><i class="item">GIF Of The Day</i></a></li>
+            <li><a href="#signUp"><i class="item">Sign Up</i></a></li>
         </ul>
     </div>
-    
+
+    <!-- Title and Page Content Begins Here -->
     <div class="content">
         <h1>ImageNation</h1>
         <h2 id="searchText">Search For Anything !</h2>
         <h2 id="searchPrompt"></h2>
         <div class="inputArea">
             <input type="text" id="imgSearch" name="imgSearch">
-            <button onclick="handleClick()" class="search" id="searchBtn">Search</button>
+            <button onclick="handleClick()" class="search" id="searchBtn" type="button">Search</button>
         </div>
         <div class="outputArea"></div>
         <div class="pages">
-            <button id="prevBtn"><</button>
+            <button id="prevBtn" type="button"><</button>
             <span id="pgNum">Page 1</span>
-            <button id="nextBtn">></button>
+            <button id="nextBtn" type="button">></button>
         </div>
     </div>
+
+    <!-- Footer Begins Here -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column" id="about">
+                <h3>About Us</h3>
+                    <p>At ImageNation, we believe that a simple GIF can capture the essence of a moment, convey emotions,
+                     and connect people across the globe. We are your premier destination for discovering, sharing, 
+                     and enjoying GIFs of all kinds—whether you're looking for the perfect reaction, a funny moment to
+                      brighten your day, or just exploring the endless possibilities of what a GIF can be.
+                    </p>
+            </div>
+            <div class="footer-column" id="socials">
+                <h3>Socials</h3>
+                <div><a href="https://www.facebook.com/">FaceBook</a></div>&nbsp;
+                <div><a href="https://www.instagram.com/">Instagram</a></div>&nbsp;
+                <div><a href="https://www.tiktok.com/">Tiktok</a></div>
+            </div>
+            <div class="footer-column" id="signUp">
+                <h3>Sign Up</h3>
+                <p>Get in touch with Us!</p>&nbsp;
+                <form id="signUpForm">
+                    <input type="email" id="email" name="email" placeholder="Enter a Valid Email">
+                    <input type="password" id="password" name="password" placeholder="Enter a Valid Password">
+                    <button id="signUpBtn" type="submit">Submit</button>
+                    <div id="message" class="message"></div>
+                </form>
+            </div>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
 </body>
