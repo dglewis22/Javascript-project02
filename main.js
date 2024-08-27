@@ -1,8 +1,8 @@
-const api_key = 'IiPpLV9J1uCbOkbhfjcR20If9UWKkJM6';
+const api_key = //'IiPpLV9J1uCbOkbhfjcR20If9UWKkJM6';
 let currentPage = 1; 
-const limit = 12;
+const limit = 16;
 
-
+// function to return gifs to the output area
 function handleClick() {
     const searchInput = document.getElementById('imgSearch');
     const searchValue = searchInput.value;
@@ -34,7 +34,7 @@ function handleClick() {
                 searchText.style.display = 'none';
             }
 
-            document.getElementById('pgNum').textContent = `Page ${currentPage}`;
+            document.getElementById('pgNum').textContent = `Page ${currentPage}`; 
             document.querySelector('.pages').style.display = 'block';
             document.getElementById('searchPrompt').textContent = `Here Are Images of "${searchValue}" !`;
         })
@@ -43,8 +43,8 @@ function handleClick() {
         });
 }
 
-
-document.getElementById('searchBtn').addEventListener('click', () => {
+// Prev/Next button and page counter
+document.getElementById('searchBtn').addEventListener('click', () => { 
     currentPage = 1; 
     handleClick(); 
 });
@@ -69,3 +69,35 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.pages').style.display = 'none';
 });
+
+// Form validation 
+document.getElementById('signUpForm').addEventListener('submit', function(event) {
+    let emailField = document.getElementById('email');
+    let passwordField = document.getElementById('password');
+    let messageDiv = document.getElementById('message');
+
+    messageDiv.textContent = '';
+    messageDiv.className = 'message';
+
+    if (!emailField.checkValidity()) {
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.classList.add('error');
+        event.preventDefault();
+    } else if (passwordField.value.length < 6) {
+        messageDiv.textContent = 'Password must be at least 6 characters long.';
+        messageDiv.classList.add('error');
+        event.preventDefault();
+    } else {
+        messageDiv.textContent = 'Form submitted successfully!';
+        messageDiv.classList.add('success');
+
+    }
+});
+
+// Applies "gif of the day" when selected in the menu
+function GOTD() {
+    currentPage = 1;
+    document.getElementById('imgSearch').value = 'GIF Of The Day';
+    handleClick();
+}
+
